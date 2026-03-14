@@ -1,7 +1,7 @@
 plugins {
     kotlin("jvm") version "2.2.21"
     kotlin("plugin.spring") version "2.2.21"
-    kotlin("kapt") version "1.9.25"
+    kotlin("kapt") version "2.3.10"
     id("org.jetbrains.kotlin.plugin.jpa") version "2.3.20-RC3"
     id("org.springframework.boot") version "4.0.3"
     id("io.spring.dependency-management") version "1.1.7"
@@ -55,6 +55,7 @@ dependencies {
     // Map Struct
     implementation("org.mapstruct:mapstruct:1.6.3")
     annotationProcessor("org.mapstruct:mapstruct-processor:1.6.3")
+    kapt("org.mapstruct:mapstruct-processor:1.6.3")
 }
 
 dependencyManagement {
