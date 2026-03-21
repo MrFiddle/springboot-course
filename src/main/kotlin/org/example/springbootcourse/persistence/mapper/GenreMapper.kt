@@ -7,7 +7,8 @@ import org.mapstruct.Named
 @Mapper(componentModel = "spring")
 abstract class GenreMapper {
     @Named("stringToGenre")
-    fun stringToGenre(genre: String): Genre? {
+    fun stringToGenre(genre: String?): Genre? {
+        if (genre == null) return null
         return when (genre.uppercase()) {
             "COMEDIA" -> Genre.COMEDY
             "DRAMA" -> Genre.DRAMA
@@ -19,7 +20,8 @@ abstract class GenreMapper {
     }
 
     @Named("genreToString")
-    fun genreToString(genre: Genre): String? {
+    fun genreToString(genre: Genre?): String? {
+        if (genre == null) return null
         return when (genre) {
             Genre.ACTION -> "ACCION"
             Genre.COMEDY -> "COMEDIA"

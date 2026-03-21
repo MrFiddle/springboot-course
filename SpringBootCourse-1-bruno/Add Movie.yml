@@ -1,0 +1,22 @@
+info:
+  name: Add Movie
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{url}}/api/movies"
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Project Hail Mary",
+        "duration": 160
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

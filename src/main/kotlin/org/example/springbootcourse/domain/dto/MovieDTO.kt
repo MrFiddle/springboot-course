@@ -4,6 +4,7 @@ import org.example.springbootcourse.domain.Genre
 import java.time.LocalDate
 
 data class MovieDTO(
+    val id: Long,
     val title: String,
     val duration: Double,
     val genre: Genre?,

@@ -13,4 +13,9 @@ abstract class StateMapper {
             else -> false
         }
     }
+
+    @Named("toState")
+    fun toState(state: Boolean): String {
+        return if (state) "D" else "N"
+    }
 }

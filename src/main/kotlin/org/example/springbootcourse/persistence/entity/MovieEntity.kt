@@ -6,11 +6,15 @@ import jakarta.persistence.Table
 import jakarta.persistence.Id
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
+import jakarta.persistence.UniqueConstraint
 import java.math.BigDecimal
 import java.time.LocalDate
 
 @Entity
-@Table(name = "platzi_play_peliculas")
+@Table(
+    name = "platzi_play_peliculas",
+    uniqueConstraints = [UniqueConstraint(name = "unique_movie_title", columnNames = ["titulo"])]
+)
 class MovieEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,10 +34,10 @@ class MovieEntity(
     var duracion: Double,
 
     @Column(
-        nullable = false,
+        nullable = true,
         length = 40,
     )
-    var genero: String,
+    var genero: String?,
 
     @Column(
         name = "fecha_estreno",

@@ -1,0 +1,27 @@
+info:
+  name: Update Movie
+  type: http
+  seq: 4
+
+http:
+  method: PUT
+  url: "{{url}}/api/movies/:id"
+  params:
+    - name: id
+      value: "109080087"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Shrek 2",
+        "rating": 4.5,
+        "state": true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
