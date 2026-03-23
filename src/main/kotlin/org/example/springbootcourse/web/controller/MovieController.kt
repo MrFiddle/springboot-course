@@ -7,6 +7,7 @@ import org.example.springbootcourse.domain.dto.UpdateMovieDTO
 import org.example.springbootcourse.domain.service.MovieService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -47,5 +48,12 @@ class MovieController(
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(movieService.update(id, movieDTO))
+    }
+
+    @DeleteMapping("/{id}")
+    fun delete(@PathVariable id: Long): ResponseEntity<Unit> {
+        return ResponseEntity
+                .status(HttpStatus.NO_CONTENT)
+                .body(movieService.delete(id))
     }
 }

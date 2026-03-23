@@ -44,4 +44,12 @@ class MovieEntityRepository(
 
         return this.movieMapper.toDto(this.movieCrudRepository.save(existingEntity))
     }
+
+    override fun delete(id: Long) {
+        if (!this.movieCrudRepository.existsById(id)) {
+            throw ResourceNotFoundException("Movie not found with id: $id")
+        }
+
+        this.movieCrudRepository.deleteById(id)
+    }
 }

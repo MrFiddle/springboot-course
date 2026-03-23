@@ -9,4 +9,5 @@ interface MovieRepository {
     fun getById(id: Long): MovieDTO?
     fun add(movieDTO: CreateMovieDTO): MovieDTO
     fun update(id: Long, movie: UpdateMovieDTO): MovieDTO
+    fun delete(id: Long)
 }

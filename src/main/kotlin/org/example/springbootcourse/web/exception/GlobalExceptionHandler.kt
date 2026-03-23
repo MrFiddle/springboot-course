@@ -1,4 +1,4 @@
-package org.example.springbootcourse.web.controller
+package org.example.springbootcourse.web.exception
 
 import org.example.springbootcourse.domain.exceptions.BusinessException
 import org.example.springbootcourse.domain.exceptions.ResourceNotFoundException
@@ -17,7 +17,7 @@ class GlobalExceptionHandler {
         return ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, ex.message ?: "Resource not found")
     }
 
-    @ExceptionHandler(org.springframework.web.bind.MethodArgumentNotValidException::class)
+    @ExceptionHandler(MethodArgumentNotValidException::class)
     fun handleValidationErrors(ex: MethodArgumentNotValidException): ProblemDetail {
         val errors = ex.bindingResult.fieldErrors
             .associate { it.field to it.defaultMessage }
@@ -37,7 +37,7 @@ class GlobalExceptionHandler {
     fun handleConflict(ex: DataIntegrityViolationException): ProblemDetail {
         val message = constraintMessages.entries.find { ex.message?.contains(it.key) == true }?.value
             ?: "A database constraint was violated."
-        
+
         return ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, message)
     }
 

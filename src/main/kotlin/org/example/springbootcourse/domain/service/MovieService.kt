@@ -26,4 +26,8 @@ class MovieService(
     fun update(id: Long, movie: UpdateMovieDTO): MovieDTO {
         return this.movieRepository.update(id, movie)
     }
+
+    fun delete(id: Long) {
+        return this.movieRepository.delete(id)
+    }
 }
