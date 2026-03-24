@@ -59,6 +59,10 @@ dependencies {
 
     // Validations
     implementation("org.springframework.boot:spring-boot-starter-validation")
+
+    // Docs
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:3.0.2")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 }
 
 dependencyManagement {
